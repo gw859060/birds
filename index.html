@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Birds of Greater Philadelphia</title>
+    <link rel="stylesheet" href="styles/normalizeR.css">
+    <link rel="stylesheet" href="styles/homepage.css">
+</head>
+
+<body>
+    <nav>
+        <div class="width-container">
+            <ul class="nav-links">
+                <li><a href="#0">Places<img class="nav-arrow" src="images/dropdown-arrow.png" srcset="images/dropdown-arrow@2x.png 2x" width="13" height="8" alt=""></a>
+                    <ul class="nav-sublinks">
+                        <li><a href="#west-chester">West Chester</a></li>
+                        <li><a href="#stroud-preserve">Stroud Preserve</a></li>
+                        <li><a href="#philadelphia-zoo">Philadelphia Zoo</a></li>
+                        <li><a href="#cape-may">Cape May</a></li>
+                    </ul>
+                </li>
+                <li><a href="#0">Taxonomy<img class="nav-arrow" src="images/dropdown-arrow.png" srcset="images/dropdown-arrow@2x.png 2x" width="13" height="8" alt=""></a>
+                    <ul class="nav-sublinks">
+                        <li><a href="#0">Chickadees</a></li>
+                        <li><a href="#0">Crows and Jays</a></li>
+                        <li><a href="#0">Hawks and Falcons</a></li>
+                        <li><a href="#0">Shorebirds</a></li>
+                        <li><a href="#0">Swallows and Swifts</a></li>
+                        <li><a href="#0">Wrens and Thrushes</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">About</a></li>
+            </ul>
+            <button class="nav-button">Menu</button>
+        </div>
+    </nav>
+    <header>
+        <div class="width-container">
+            <h1>
+                <span class="title-small">Birds of</span><br />
+                <span class="title-large">Greater Philadelphia</span>
+            </h1>
+            <p>The leading resource for birdwatchers, nature lovers, and photographers in the West Chester and Philadelphia regions.</p>
+        </div>
+    </header>
+    <main class="width-container clearfix">
+        <section class="intro clearfix">
+            <div class="bird-search">
+                <h2>Find a bird</h2>
+                <p>You can search our database by name, taxonomic family, appearance (like colors, shape, size) or location.</p>
+                <input type="search" placeholder="Enter the name of a bird">
+            </div>
+            <div class="newsletter">
+                <h2>Read our newsletter</h2>
+                <p>We'll share places where birds have been seen recently, and tips on how to identify them.</p>
+                <input type="search" placeholder="Enter your email">
+            </div>
+        </section>
+        <section class="place" id="west-chester">
+            <img class="place-image" src="images/west-chester.jpg" srcset="images/west-chester@2x.jpg 2x" alt="A view of the West Chester countryside">
+            <h2>West Chester</h2>
+            <p class="coordinates"><a href="https://goo.gl/maps/bNjWmELgCeQ2uqHR8/" target="_blank">39° 57' 31" N, 75° 36' 18" W</a></p>
+            <p>County seat since 1786, and the home of West Chester University of Pennsylvania.</p>
+            <button class="west-chester-birds" onclick="toggleBirds()">Show birds</button>
+            <ul class="bird-section section-closed west-chester-birds">
+                <li class="bird">
+                    <a href="subpages/american_robin_(shell).html">
+                        <img class="bird-image" src="images/thumbs/American_robin.jpg" srcset="images/thumbs/American_robin@2x.jpg 2x" alt="">
+                        <p class="bird-name">American robin</p>
+                    </a>
+                </li>
+                <li class="bird">
+                    <a href="subpages/black_capped_chickadee.html">
+                        <img class="bird-image" src="images/thumbs/Black-capped_chickadee.jpg" srcset="images/thumbs/Black-capped_chickadee@2x.jpg 2x" alt="">
+                        <p class="bird-name">Black-capped chickadee</p>
+                    </a>
+                </li>
+                <li class="bird">
+                    <a href="#0">
+                        <img class="bird-image" src="images/thumbs/Northern_cardinal.jpg" srcset="images/thumbs/Northern_cardinal@2x.jpg 2x" alt="">
+                        <p class="bird-name">Northern cardinal</p>
+                    </a>
+                </li>
+                <li class="bird">
+                    <a href="#0">
+                        <img class="bird-image" src="images/thumbs/Pileated_woodpecker.jpg" srcset="images/thumbs/Pileated_woodpecker@2x.jpg 2x" alt="">
+                        <p class="bird-name">Pileated woodpecker</p>
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <section class="place" id="stroud-preserve">
+            <img class="place-image" src="images/stroud-preserve.jpg" srcset="images/stroud-preserve@2x.jpg 2x" alt="A red-winged blackbird flying across a field at Stroud Preserve">
+            <h2>Stroud Preserve</h2>
+            <p class="coordinates"><a href="https://goo.gl/maps/a2gfgPLac7mVmUce6/" target="_blank">39° 57' 08" N, 75° 38' 52" W</a></p>
+            <p>A 574-acre nature preserve open to the public, less than 10 minutes from West Chester Borough.</p>
+            <button class="stroud-preserve-birds" onclick="toggleBirds()">Show birds</button>
+            <ul class="bird-section section-closed stroud-preserve-birds">
+                <li class="bird">
+                    <a href="#0">
+                        <img class="bird-image" src="images/thumbs/Cedar_waxwing.jpg" srcset="images/thumbs/Cedar_waxwing@2x.jpg 2x" alt="">
+                        <p class="bird-name">Cedar waxwing</p>
+                    </a>
+                </li>
+                <li class="bird">
+                    <a href="#0">
+                        <img class="bird-image" src="images/thumbs/Red-bellied_woodpecker.jpg" srcset="images/thumbs/Red-bellied_woodpecker@2x.jpg 2x" alt="">
+                        <p class="bird-name">Red-bellied woodpecker</p>
+                    </a>
+                </li>
+                <li class="bird">
+                    <a href="#0">
+                        <img class="bird-image" src="images/thumbs/Red-winged_blackbird.jpg" srcset="images/thumbs/Red-winged_blackbird@2x.jpg 2x" alt="">
+                        <p class="bird-name">Red-winged blackbird</p>
+                    </a>
+                </li>
+                <li class="bird">
+                    <a href="#0">
+                        <img class="bird-image" src="images/thumbs/Tree_swallow.jpg" srcset="images/thumbs/Tree_swallow@2x.jpg 2x" alt="">
+                        <p class="bird-name">Tree swallow</p>
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <section class="place" id="philadelphia-zoo">
+            <img class="place-image" src="images/philadelphia-zoo.jpg" srcset="images/philadelphia-zoo@2x.jpg 2x" alt="Two metallic starlings during feeding time at the Philadelphia Zoo">
+            <h2>Philadelphia Zoo</h2>
+            <p class="coordinates"><a href="https://goo.gl/maps/aLcS7LHhNsi3KtCt9/" target="_blank">39° 58' 28" N, 75° 11' 45" W</a></p>
+            <p>The first zoo established in America, containing more than 1,000 animal and plant species.</p>
+            <button class="philadelphia-zoo-birds" onclick="toggleBirds()">Show birds</button>
+            <ul class="bird-section section-closed philadelphia-zoo-birds">
+                <li class="bird">
+                    <a href="#0">
+                        <img class="bird-image" src="images/thumbs/Bald_eagle.jpg" srcset="images/thumbs/Bald_eagle@2x.jpg 2x" alt="">
+                        <p class="bird-name">Bald eagle</p>
+                    </a>
+                </li>
+                <li class="bird">
+                    <a href="#0">
+                        <img class="bird-image" src="images/thumbs/Golden_pheasant.jpg" srcset="images/thumbs/Golden_pheasant@2x.jpg 2x" alt="">
+                        <p class="bird-name">Golden pheasant</p>
+                    </a>
+                </li>
+                <li class="bird">
+                    <a href="#0">
+                        <img class="bird-image" src="images/thumbs/Lady_Amherst's_pheasant.jpg" srcset="images/thumbs/Lady_Amherst's_pheasant@2x.jpg 2x" alt="">
+                        <p class="bird-name">Lady Amherst's pheasant</p>
+                    </a>
+                </li>
+                <li class="bird">
+                    <a href="#0">
+                        <img class="bird-image" src="images/thumbs/Red-whiskered_bulbul.jpg" srcset="images/thumbs/Red-whiskered_bulbul@2x.jpg 2x" alt="">
+                        <p class="bird-name">Red-whiskered bulbul</p>
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <section class="place" id="cape-may">
+            <img class="place-image" src="images/cape-may.jpg" srcset="images/cape-may@2x.jpg 2x" alt="An American oystercatcher in the waves at Cape May">
+            <h2>Cape May</h2>
+            <p class="coordinates"><a href="https://goo.gl/maps/CJuSip1YzhUyEiry8/" target="_blank">39° 02' 04" N, 74° 46' 14" W</a></p>
+            <p>The country's oldest seaside resort and a National Historic Landmark on the Atlantic coast.</p>
+            <button class="cape-may-birds" onclick="toggleBirds()">Show birds</button>
+            <ul class="bird-section section-closed cape-may-birds">
+                <li class="bird">
+                    <a href="subpages/american_oystercatcher.html">
+                        <img class="bird-image" src="images/thumbs/American_oystercatcher.jpg" srcset="images/thumbs/American_oystercatcher@2x.jpg 2x" alt="">
+                        <p class="bird-name">American oystercatcher</p>
+                    </a>
+                </li>
+                <li class="bird">
+                    <a href="#0">
+                        <img class="bird-image" src="images/thumbs/Forster's_tern.jpg" srcset="images/thumbs/Forster's_tern@2x.jpg 2x" alt="">
+                        <p class="bird-name">Forster's tern</p>
+                    </a>
+                </li>
+                <li class="bird">
+                    <a href="#0">
+                        <img class="bird-image" src="images/thumbs/Great_egret.jpg" srcset="images/thumbs/Great_egret@2x.jpg 2x" alt="">
+                        <p class="bird-name">Great egret</p>
+                    </a>
+                </li>
+                <li class="bird">
+                    <a href="subpages/mute_swan_(shell).html">
+                        <img class="bird-image" src="images/thumbs/Mute_swan.jpg" srcset="images/thumbs/Mute_swan@2x.jpg 2x" alt="">
+                        <p class="bird-name">Mute swan</p>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <div class="width-container">
+            <div class="footer-copyright">Copyright &copy; 2019 Garrett Wei.</div>
+            <div class="footer-note">Posted temporarily for academic (website design education) purposes on a password-protected university server.</div>
+        </div>
+    </footer>
+
+    <!-- load script -->
+    <script type="text/javascript" src="js/toggleBirds.js"></script>
+</body>
+
+
+</html>

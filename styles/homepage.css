@@ -1,0 +1,466 @@
+/* =====================
+          fonts
+   ===================== */
+
+@font-face {
+    font-family: 'Ideal Sans';
+    font-weight: normal;
+    src: url('../fonts/IdealSans-Light.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Ideal Sans';
+    font-weight: bold;
+    src: url('../fonts/IdealSans-Semibold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Heldane';
+    font-weight: bold;
+    src: url('../fonts/Heldane-Bold.otf') format('opentype');
+}
+
+/* ==================
+         basics
+   ================== */
+
+body {
+    font-family: 'Ideal Sans', 'Optima', 'Gill Sans', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.4;
+    background: #f5f3f3;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Heldane', 'Palatino', 'Baskerville', serif;
+    line-height: 1.1;
+}
+
+h2,
+h3 {
+    letter-spacing: 0.01em;
+}
+
+p {
+    margin: 0 0 20px;
+}
+
+a {
+    color: #804040;
+    text-decoration: none;
+}
+
+a:hover,
+a:focus {
+    text-decoration: underline;
+}
+
+/* ==================
+        reusable
+   ================== */
+
+/* limit width of contents */
+.width-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-left: 4vw;
+    padding-right: 4vw;
+}
+
+/* prevent floated elements from making parent have zero height */
+.clearfix::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+/* ==================
+       navigation
+   ================== */
+
+nav {
+    color: #f9f9ef;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+nav a {
+    color: #f9f9ef;
+    text-decoration: none;
+    transition: opacity .3s ease;
+}
+
+nav a:hover,
+nav a:focus {
+    opacity: 0.75;
+    text-decoration: none;
+}
+
+.nav-arrow {
+    margin-left: 5px;
+    opacity: 0.75;
+}
+
+.nav-links {
+    font-size: 18px;
+    float: right;
+    list-style: none;
+    margin: 0;
+}
+
+.nav-links > li {
+    float: left;
+    position: relative;
+}
+
+.nav-links a {
+    display: inline-block;
+    padding: calc((64px - 25px) / 2) 1em; /* nav height minus text height divided by 2, to vertically center links */
+}
+
+.nav-links > li:last-of-type a {
+    padding-right: 0;
+}
+
+.nav-links li:hover .nav-sublinks,
+.nav-links li:focus .nav-sublinks {
+    display: block;
+}
+
+.nav-sublinks {
+    display: none;
+    list-style: none;
+    white-space: nowrap;
+    position: absolute;
+    top: 88%;
+
+    padding: 0;
+    border-radius: 0.25em;
+    overflow: hidden;
+    box-shadow: 0 .25em .75em rgba(0, 0, 0, 0.15);
+    animation: 0.4s ease slide-down;
+}
+
+.nav-sublinks a {
+    background-color: #fff;
+    display: block;
+    color: black;
+    padding: 10px 20px;
+    transition: background-color 0.25s ease;
+}
+
+.nav-sublinks a:hover,
+.nav-sublinks a:focus {
+    background-color: #efecec;
+    opacity: 1; /* to reset 0.75 opacity from nav a:hover above */
+}
+
+.nav-button {
+	display: none; /* hide button for desktop by default */
+    float: right;
+    margin: calc((64px - 28px) / 2) 0; /* nav height minus button height divided by 2, to vertically center button */
+}
+
+/* Chapter 16, animations
+   makes the level 2 navigation fade in and slide down */
+@keyframes slide-down {
+
+    from {
+        transform: translateY(-5px) scale(0.98);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+
+}
+
+/* replace links with menu button */
+@media only screen and (max-width: 550px) {
+
+    .nav-links {
+        display: none;
+    }
+
+	.nav-button {
+		display: initial;
+	}
+
+}
+
+/* ==================
+         header
+   ================== */
+
+header {
+    color: #f9f9ef;
+    padding: 200px 0;
+    /*
+       there are two background images layered on top of each other:
+       1. a linear gradient on a slight diagonal, fading from transparent to opaque
+       2. the photo of a cardinal, aligned to the right edge of the window
+    */
+    background: linear-gradient(255deg, rgba(35, 32, 32, 0), rgba(35, 32, 32, 0) 300px, rgba(35, 32, 32, 0.4) 400px, rgba(35, 32, 32, 0.8) 500px, #232020 600px, #232020), url('../images/homepage.jpg') right no-repeat;
+    background-size: contain;
+}
+
+header h1 {
+    line-height: .95;
+    margin: 0 0 20px;
+    text-shadow: 0 .2em .85em rgba(0, 0, 0, 0.5);
+}
+
+.title-small {
+    color: #e3e3d2;
+    font-size: 60px;
+}
+
+.title-large {
+    font-size: 80px;
+}
+
+header p {
+    font-size: 1.2em;
+    margin-bottom: 0;
+    max-width: 700px;
+    opacity: .8;
+    text-shadow: 0 .2em .85em rgba(0, 0, 0, 0.5);
+}
+
+@media only screen and (max-width: 550px) {
+
+    /* change gradient to go vertical and cover the entire image */
+    header {
+        background: linear-gradient(rgba(35, 32, 32, 0.95), rgba(35, 32, 32, 0.5)), url('../images/homepage.jpg') right no-repeat;
+        padding: 75px 0;
+    }
+
+    .title-small {
+        font-size: 40px;
+    }
+
+    .title-large {
+        font-size: 55px;
+    }
+
+    header p {
+        font-size: 1.1em;
+    }
+
+}
+
+@media only screen and (max-width: 700px) {
+
+    header {
+        background-size: cover;
+    }
+
+}
+
+/* ==================
+         intro
+   ================== */
+
+.intro {
+    text-align: center;
+    margin: 2em 0;
+}
+
+.intro input {
+    text-align: center;
+    border: none;
+    border-radius: .25em;
+    width: 70%;
+    padding: 10px;
+    margin-bottom: 1em;
+    box-shadow: 0 0.2em .5em -0.2em rgba(0,0,0,0.2);
+}
+
+.bird-search,
+.newsletter {
+    float: left;
+    box-sizing: border-box;
+}
+
+.bird-search {
+    width: 60%;
+    padding: 20px 30px 20px 0;
+}
+
+.newsletter {
+    width: 40%;
+    border-left: 2px solid #ebe8e7;
+    padding: 20px 0 20px 30px;
+}
+
+/* turn two columsn into one */
+@media only screen and (max-width: 700px) {
+
+    .bird-search,
+    .newsletter {
+        float: none;
+        width: 100%;
+        padding: 0;
+    }
+
+    .newsletter {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-left: none;
+        border-top: 2px solid #ebe8e7;
+    }
+
+    .intro input {
+        width: 80%;
+    }
+
+}
+
+/* ==================
+         places
+   ================== */
+
+.place {
+    background: white;
+    padding: 1.5em;
+    margin-top: 4em;
+    margin-bottom: 4em;
+    box-shadow: 0 .5em 1em rgba(0, 0, 0, 0.1);
+}
+
+.place-image {
+    width: calc(100% + 3em); /* negative 1.5em margin x2 so image spans full width */
+    margin: -1.5em -1.5em 0;
+}
+
+.place h2 {
+    font-size: 2.2em;
+    margin: 0.5em 0 0;
+}
+
+.place p {
+    font-size: 1.1em;
+}
+
+.place .coordinates {
+    font-size: 0.95em;
+    margin-bottom: 0.5em;
+    font-variant-numeric: lining-nums; /* force lining figures instead of text figures */
+}
+
+.place .coordinates a {
+    color: #888;
+}
+
+.place button {
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 0.25em;
+    padding: 0.5em;
+    width: 140px;
+    cursor: pointer; /* change to hand pointer */
+    box-shadow: 0 0.15em 0.3em -0.1em rgba(0, 0, 0, 0.2);
+}
+
+#west-chester button {
+    background: #a1899e;
+}
+
+#stroud-preserve button {
+    background: #acb26c;
+}
+
+#philadelphia-zoo button {
+    background: #e1af6a;
+}
+
+#cape-may button {
+    background: #879ebf;
+}
+
+/* ==================
+         birds
+   ================== */
+
+.bird-section {
+    margin: 0.5em -0.8em 0;
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* hide birds when button is in closed state */
+.bird-section.section-closed {
+    display: none;
+}
+
+.bird {
+    margin: 1em 0.8em 0;
+}
+
+.bird a {
+    display: inline-block;
+    transition: transform 0.2s ease-in-out;
+}
+
+.bird a:hover,
+.bird a:focus {
+    text-decoration: none;
+    transform: translateY(-4px);
+}
+
+.bird-image {
+    margin: 0 auto;
+    width: 100%;
+    border-radius: 0.35em;
+    box-shadow: 0 0.4em 1em -0.2em rgba(0, 0, 0, 0.3);
+}
+
+p.bird-name {
+    color: black;
+    font-size: 1em;
+    text-align: center;
+    margin: 0;
+}
+
+@media only screen and (max-width: 700px) {
+
+    .bird-section {
+        flex-wrap: wrap; /* let birds wrap onto two rows */
+    }
+
+    .bird {
+        width: 40%;
+    }
+
+}
+
+/* ==================
+         footer
+   ================== */
+
+footer {
+    color: #f9f9ef;
+    font-size: .9em;
+    background: #232020;
+    padding: 1.5em 0;
+}
+
+.footer-copyright {
+    font-weight: bold;
+}
+
+.footer-note {
+    color: #e3e3d2;
+    margin-top: .25em;
+    line-height: 1.3;
+}

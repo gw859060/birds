@@ -1,0 +1,511 @@
+/* =====================
+          fonts
+   ===================== */
+
+@font-face {
+    font-family: 'Ideal Sans';
+    font-weight: normal;
+    src: url('../fonts/IdealSans-Light.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Ideal Sans';
+    font-weight: bold;
+    src: url('../fonts/IdealSans-Semibold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Heldane';
+    font-weight: bold;
+    src: url('../fonts/Heldane-Bold.otf') format('opentype');
+}
+
+/* ==================
+         basics
+   ================== */
+
+body {
+    font-family: 'Ideal Sans', 'Optima', 'Gill Sans', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.4;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Heldane', 'Palatino', 'Baskerville', serif;
+    line-height: 1.1;
+}
+
+h2,
+h3 {
+    letter-spacing: 0.01em;
+}
+
+p {
+    margin: 0 0 20px;
+}
+
+a {
+    color: #804040;
+    text-decoration: none;
+}
+
+a:hover,
+a:focus {
+    text-decoration: underline;
+}
+
+/* ==================
+        reusable
+   ================== */
+
+/* limit width of contents */
+.width-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-left: 4vw;
+    padding-right: 4vw;
+}
+
+/* prevent floated elements from making parent have zero height */
+.clearfix::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+/* ==================
+       navigation
+   ================== */
+
+nav {
+    color: #f9f9ef;
+    background: #232020;
+    box-shadow: 0 .2em .75em rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2; /* make sure nav stays on top of <header> */
+}
+
+nav a {
+    color: #f9f9ef;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+nav a:hover,
+nav a:focus {
+    opacity: 0.75;
+    text-decoration: none;
+}
+
+.nav-logo {
+    line-height: 1;
+    padding: 5px 0;
+    float: left;
+}
+
+.nav-arrow {
+    margin-left: 5px;
+    opacity: 0.75;
+}
+
+.nav-links {
+    font-size: 18px;
+    float: right;
+    list-style: none;
+    margin: 0;
+}
+
+.nav-links > li {
+    float: left;
+    position: relative;
+}
+
+.nav-links a {
+    display: inline-block;
+    padding: calc((64px - 25px) / 2) 1em; /* nav height minus text height divided by 2, to vertically center links */
+}
+
+.nav-links > li:last-of-type a {
+    padding-right: 0;
+}
+
+.nav-links li:hover .nav-sublinks,
+.nav-links li:focus .nav-sublinks {
+    display: block;
+}
+
+.nav-sublinks {
+    display: none;
+    list-style: none;
+    white-space: nowrap;
+    position: absolute;
+    top: 88%;
+
+    padding: 0;
+    border-radius: 0.25em;
+    overflow: hidden;
+    box-shadow: 0 0.25em 0.75em rgba(0, 0, 0, 0.15);
+    animation: 0.4s ease slide-down;
+}
+
+.nav-sublinks a {
+    background-color: #fff;
+    display: block;
+    color: black;
+    padding: 10px 20px;
+    transition: background-color 0.25s ease;
+}
+
+.nav-sublinks a:hover,
+.nav-sublinks a:focus {
+    background-color: #efecec;
+    opacity: 1; /* to reset 0.75 opacity from nav a:hover above */
+}
+
+.nav-button {
+	display: none; /* hide button for desktop by default */
+    float: right;
+    margin: calc((64px - 28px) / 2) 0; /* nav height minus button height divided by 2, to vertically center button */
+}
+
+/* Chapter 16, animations
+   makes the level 2 navigation fade in and slide down */
+@keyframes slide-down {
+
+    from {
+        transform: translateY(-5px) scale(0.98);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+
+}
+
+/* replace links with menu button */
+@media only screen and (max-width: 650px) {
+
+    .nav-links {
+        display: none;
+    }
+
+	.nav-button {
+		display: initial;
+	}
+
+}
+
+/* ==================
+         main
+   ================== */
+
+main {
+    background: #f5f3f3;
+}
+
+/* ==================
+         header
+   ================== */
+
+header {
+    position: relative;
+    margin-top: 64px; /* push header down to account for the gap that the nav leaves */
+}
+
+/* darken area behind text so there's more contrast when on top of the image */
+header.light-text::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0));
+    height: 225px;
+}
+
+/* use when image background is dark */
+.light-text {
+    color: #f9f9ef;
+    text-shadow: 0 0.2em 0.85em rgba(0, 0, 0, 0.3);
+}
+
+.hero-image {
+    display: block;
+    width: 100%;
+    height: calc(100vh - 64px); /* window height minus nav height, so the image fills the entire screen */
+    min-height: 300px;
+    object-fit: cover;
+}
+
+/* position text on top of image */
+.hero-text {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.hero-name {
+    font-size: 75px;
+    line-height: 0.95;
+    margin: 0 0 15px;
+}
+
+.hero-description {
+    font-size: 1.1em;
+}
+
+@media only screen and (max-width: 650px) {
+
+    .hero-name {
+        font-size: 60px;
+    }
+
+    .hero-description {
+        display: none;
+    }
+
+}
+
+/* ===================
+         article
+   =================== */
+
+article {
+    padding-top: 25px;
+    padding-bottom: 75px;
+}
+
+article h2 {
+    font-size: 1.7em;
+    margin: 55px 0 10px;
+}
+
+.left-column {
+	width: calc(100% - 33% - 25px); /* 100% minus width of right column and margin of right column */
+}
+
+.right-column {
+	float: right;
+	width: 33%;
+	margin: 0 0 25px 25px;
+}
+
+.quick-facts {
+    background: white;
+    float: left;
+    font-size: 0.85em;
+    padding: 25px;
+	margin-bottom: 25px;
+    box-sizing: border-box;
+}
+
+.quick-facts dl {
+    margin: 0.75em 0 0;
+}
+
+.quick-facts dt {
+    font-weight: bold;
+    margin-top: 0.25em;
+}
+
+.quick-facts dd {
+    margin-left: 1em;
+}
+
+/* get rid of floats, turn two columns into one */
+@media only screen and (max-width: 650px) {
+
+    .left-column {
+		width: 100%;
+    }
+
+    .right-column {
+        float: none;
+        width: 100%;
+        margin: 0.5em 0 1em;
+    }
+
+    .quick-facts {
+        float: none;
+    }
+
+}
+
+/* ===================
+          aside
+   =================== */
+
+aside {
+    background: #ebe8e7;
+    font-size: 0.85em;
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+aside h3,
+.quick-facts h3 {
+    font-size: 1.05em;
+    font-family: 'Ideal Sans', 'Helvetica Neue', 'Arial', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin: 0 0 0.5em;
+}
+
+aside p {
+    margin-bottom: 0;
+}
+
+aside hr {
+    border-width: 1px 0 0 0; /* get rid of default inset border */
+}
+
+/* for photo details at the top */
+.exif {
+    font-size: 0.85em;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* ==================
+        read more
+   ================== */
+
+.further-reading {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-top: 1em;
+}
+
+.site {
+    color: #f9f9ef;
+    background-color: #333030;
+    width: calc((100% - .75em) / 2);
+    padding: 1.25em 1.5em;
+    border-radius: 0.3em;
+    box-sizing: border-box;
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease-in-out;
+}
+
+.site:hover,
+.site:focus {
+    text-decoration: none;
+    transform: translateY(-3px);
+}
+
+.site h3 {
+    font-size: 1.25em;
+    margin: 0;
+}
+
+.read-more {
+    color: #e3e3d2;
+    font-size: 0.85em;
+    margin: 0;
+}
+
+/* stack links vertically instead of side-by-side */
+@media only screen and (max-width: 650px) {
+
+    .site {
+        width: 100%;
+    }
+
+    .site + .site {
+        margin-top: 0.5em;
+    }
+
+}
+
+/* ==================
+        related
+   ================== */
+
+.related-birds {
+    background: #ebe8e7;
+    text-align: center;
+    padding: 3em 3vw 5em;
+}
+
+.related-birds h2 {
+    margin-bottom: 0;
+}
+
+.related-row {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+.related-bird {
+    display: inline-block;
+    margin: 20px 12px 0;
+}
+
+.related-bird a {
+    color: black;
+    display: inline-block;
+    transition: transform 0.2s ease-in-out;
+}
+
+.related-bird a:hover,
+.related-bird a:focus {
+    text-decoration: none;
+    transform: translateY(-4px);
+}
+
+.related-image {
+    margin: 0 auto;
+    height: 230px;
+    border-radius: 0.35em;
+    box-shadow: 0 0.4em 1em -0.2em rgba(0, 0, 0, 0.3);
+}
+
+.related-name {
+    margin: 0;
+    font-size: 110%;
+}
+
+.row-break {
+    display: none;
+}
+
+/* force row of 4 items to split into 2 rows of 2, instead of 3 on top and 1 on the bottom */
+@media only screen and (max-width: 1100px) {
+
+    .row-break {
+        display: block;
+    }
+
+}
+
+/* ==================
+         footer
+   ================== */
+
+footer {
+    color: #f9f9ef;
+    font-size: 0.9em;
+    background: #232020;
+    padding: 1.5em 0;
+}
+
+.footer-copyright {
+    font-weight: bold;
+}
+
+.footer-note {
+    color: #e3e3d2;
+    margin-top: 0.25em;
+    line-height: 1.3;
+}
